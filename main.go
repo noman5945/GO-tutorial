@@ -88,5 +88,25 @@ func sliceDataStruct(){
 
 //Maps
 func mapDataStruct(){
-
+	//This variable m is a map of string keys to int values
+	var m=make(map[string]int) ;
+	m["route"]=66;
+	fmt.Println(m["route"]);
+	//This statement retrieves the value stored under the key "route" and assigns it to a new variable i:
+	var i int =m["route"];
+	fmt.Println(i)
+	//To initialize a map with some data, use a map literal:
+	var commits = map[string]int{
+		"rsc": 3711,
+		"r":   2138,
+		"gri": 1908,
+		"adg": 912,
+	}
+	//iterate the map
+	for key,value:=range commits{
+		fmt.Println("key:",key ,"value:",value)
+	}
+	//Initiate empty Map
+	var emptyMap=map[string]int{};
+	fmt.Println(emptyMap)
 }
