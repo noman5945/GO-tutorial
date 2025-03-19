@@ -96,7 +96,10 @@ func main(){
 	fmt.Printf("\nMemory location of thing1 array is : %p",&thing1)
 	var result_pointer [5]float32=square_with_pointers(&thing1)
 	fmt.Printf("\n Result: %v",result_pointer)
-	fmt.Printf("\nValue of thing1 array is : %v",thing1)
+	fmt.Printf("\nValue of thing1 array is : %v\n",thing1)
+
+	fmt.Println("Channels")
+	channels_demo()
 
 }
 
@@ -166,4 +169,18 @@ func square_with_pointers(thing2 *[5]float32)[5]float32{
 		thing2[i]=thing2[i]*thing2[i]
 	}
 	return *thing2
+}
+
+//channels
+func channels_demo(){
+	//create a channel c
+	var c=make(chan int)
+	//go routine
+	go process(c)
+	fmt.Println(<-c)
+}
+
+func process(c chan int){
+	// c:[123] putting 3 into c buffer
+	c<-123
 }
